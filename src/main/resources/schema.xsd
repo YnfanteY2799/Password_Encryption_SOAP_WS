@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://priv.me/ws-mk"
+           targetNamespace="http://priv.me/ws-mk" elementFormDefault="qualified">
+
+    <xs:element name="getEncryptRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Phrase" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getEncryptResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Result" type="tns:PrhaseDescpt"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="PrhaseDescpt">
+        <xs:sequence>
+
+            <xs:element name="Encrypted" type="xs:string"/>
+            <xs:element name="Base64" type="xs:boolean"/>
+            <xs:element name="JWT" type="xs:string"/>
+            <xs:element name="Issuer" type="xs:string"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
