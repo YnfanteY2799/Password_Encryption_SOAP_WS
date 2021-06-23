@@ -6,6 +6,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="Phrase" type="xs:string"/>
+                <xs:element name="key" type="xs:int"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -13,12 +14,62 @@
     <xs:element name="getEncryptResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Result" type="tns:PrhaseDescpt"/>
+                <xs:element name="Result" type="tns:PhaseDescription"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:complexType name="PrhaseDescpt">
+    <xs:element name="getGenSHAKeyRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Issuer" type="xs:string"/>
+                <xs:element name="Date" type="xs:string"/>
+                <xs:element name="Long" type="xs:string"/>
+                <xs:element name="public" type="xs:int"/>
+                <xs:element name="phrase" type="xs:int"/>
+                <xs:element name="key" type="xs:int"/>
+                <xs:element name="dbSave" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenSHAKeyResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="key" type="xs:string"/>
+                <xs:element name="savedDb" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenSHAKeyConfigurationSetterRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="privateUser" type="xs:string"/>
+                <xs:element name="userPrivateKey" type="xs:string"/>
+                <xs:element name="newKeyLength" type="xs:int"/>
+                <xs:element name="newKeyType" type="xs:int"/>
+                <xs:element name="multiLineKey" type="xs:int"/>
+                <xs:element name="mailSender" type="xs:int"/>
+                <xs:element name="mail" type="xs:string"/>
+                <xs:element name="notifier" type="xs:boolean"/>
+                <xs:element name="notifyingMail" type="xs:string" maxOccurs="unbounded"/>
+                <xs:element name="assistance" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenSHAKeyConfigurationSetterResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="changesMade" type="xs:string"/>
+                <xs:element name="sentByMail" type="xs:boolean"/>
+                <xs:element name="newKey" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="PhaseDescription">
         <xs:sequence>
 
             <xs:element name="Encrypted" type="xs:string"/>

@@ -19,11 +19,6 @@ configurations {
 	jaxb
 }
 
-bootJar {
-	baseName = 'priv-encrypt'
-	version =  '0.0.1'
-}
-
 repositories {
 	mavenCentral()
 }
@@ -55,11 +50,6 @@ task genJaxb {
 				include(name: "*.java")
 			}
 
-			copy(todir: classesDir) {
-				fileset(dir: sourcesDir, erroronmissingdir: false) {
-					exclude(name: "**/*.java")
-				}
-			}
 		}
 	}
 }

@@ -23,7 +23,7 @@ import org.springframework.xml.xsd.XsdSchema;
             return new ServletRegistrationBean(servlet, "/ws/*");
         }
 
-        @Bean(name = "schema")
+        @Bean(name = "EncryptionBody")
         public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
             DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
             wsdl11Definition.setPortTypeName("EncryptingPort");
